@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SoTietKiemDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LoaiTietKiems" EntityType="StudentDBModel.LoaiTietKiem" />
+    <EntitySet Name="PhieuGuis" EntityType="StudentDBModel.PhieuGui" />
+    <EntitySet Name="PhieuRuts" EntityType="StudentDBModel.PhieuRut" />
+    <EntitySet Name="TaiKhoanKhachHangs" EntityType="StudentDBModel.TaiKhoanKhachHang" />
+  </EntityContainer>
+  <EntityType Name="LoaiTietKiem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiTietKiem" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="HoatDong" Type="Boolean" />
+    <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhieuGui">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KhachHangID" Type="Int32" />
+    <Property Name="SoTienGui" Type="Int32" />
+    <Property Name="NgayGui" Type="DateTime" Precision="0" />
+    <Property Name="HoatDong" Type="Boolean" />
+    <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhieuRut">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KhachHangID" Type="Int32" />
+    <Property Name="SoTienRut" Type="Int32" />
+    <Property Name="NgayRut" Type="DateTime" Precision="0" />
+    <Property Name="HoatDong" Type="Boolean" />
+    <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TaiKhoanKhachHang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoaiTietKiemID" Type="Int32" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoCMND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayMoSo" Type="DateTime" Precision="0" />
+    <Property Name="SoTienGuiBanDau" Type="Int32" />
+    <Property Name="HoatDong" Type="Boolean" />
+    <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

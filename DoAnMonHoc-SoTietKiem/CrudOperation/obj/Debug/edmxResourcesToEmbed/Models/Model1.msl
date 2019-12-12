@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentDBModelStoreContainer" CdmEntityContainer="SoTietKiemDBEntities">
+    <EntitySetMapping Name="LoaiTietKiems">
+      <EntityTypeMapping TypeName="StudentDBModel.LoaiTietKiem">
+        <MappingFragment StoreEntitySet="LoaiTietKiem">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="TenLoaiTietKiem" ColumnName="TenLoaiTietKiem" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuGuis">
+      <EntityTypeMapping TypeName="StudentDBModel.PhieuGui">
+        <MappingFragment StoreEntitySet="PhieuGui">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
+          <ScalarProperty Name="SoTienGui" ColumnName="SoTienGui" />
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuRuts">
+      <EntityTypeMapping TypeName="StudentDBModel.PhieuRut">
+        <MappingFragment StoreEntitySet="PhieuRut">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="NgayRut" ColumnName="NgayRut" />
+          <ScalarProperty Name="SoTienRut" ColumnName="SoTienRut" />
+          <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoanKhachHangs">
+      <EntityTypeMapping TypeName="StudentDBModel.TaiKhoanKhachHang">
+        <MappingFragment StoreEntitySet="TaiKhoanKhachHang">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="SoTienGuiBanDau" ColumnName="SoTienGuiBanDau" />
+          <ScalarProperty Name="NgayMoSo" ColumnName="NgayMoSo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="LoaiTietKiemID" ColumnName="LoaiTietKiemID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

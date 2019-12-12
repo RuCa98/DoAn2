@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/images/icon.png" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/"><img src="~/images/logo.png" style="width:60px" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/tai-khoan"><img src="~/images/i1.png" style="width:25px;" /> TÀI KHOẢN</a></li>
+                    <li><a href="/loai-tiet-kiem"><img src="~/images/i1.png" style="width:25px;" /> LOẠI TIẾT KIỆM</a></li>
+                    <li><a href="/rut-tien"><img src="~/images/i1.png" style="width:25px;" /> RÚT TIỀN</a></li>
+                    <li><a href="/gui-tien"><img src="~/images/i1.png" style="width:25px;" /> GỬI TIỀN</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <div class="container" style="text-align:center">
+            <a style="text-align:center"><img src="~/images/logo.png" style="width:15%" /></a>
+            <h3 style="font-weight:bold" class="text-success">&copy; @DateTime.Now.Year - SỔ TIẾT KIỆM</h3>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

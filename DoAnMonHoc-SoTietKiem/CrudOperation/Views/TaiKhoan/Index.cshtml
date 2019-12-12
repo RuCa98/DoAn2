@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "QUẢN LÝ TÀI KHOẢN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .btn, input, .form-control {
+        border-radius: 0px;
+    }
+</style>
+<div ng-app="myapp">
+    <div ng-controller="TaiKhoanCtrl">
+        <h2 style="text-align:center" class="text-success"><strong>QUẢN LÝ TÀI KHOẢN</strong> </h2>
+        <form novalidate name="frmStudent" id="frmStudent">
+            <br />
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom:10px">
+                    <label class="col-md-4 control-label" for="input17"> TÊN LOẠI</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idTenLoaiTietKiem"
+                               class="form-control"
+                               name="nameTenLoaiTietKiem" ng-model="tenkhachhang" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> SỐ CMND</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idMoTa"
+                               class="form-control"
+                               name="nameMoTa" ng-model="socmnd" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> SỐ ĐIỆN THOẠI</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idMoTa"
+                               class="form-control"
+                               name="nameMoTa" ng-model="sodienthoai" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> ĐỊA CHỈ</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idMoTa"
+                               class="form-control"
+                               name="nameMoTa" ng-model="diachi" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">THỜI HẠN GỬI</label>
+                    <div class="col-md-7">
+                        <select class="form-control" ng-model="tietkiemid" ng-options="tietkiem.TenLoaiTietKiem for tietkiem in loaitietkiems">
+                            <option value="">-- Chọn thời hạn gửi --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-7">
+                        <span id="save" class="btn btn-success margin-right-btn" ng-click="SaveUpdate()">
+                            <i class="icon-save"></i> {{btnText}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <hr />
+        <h3>DANH SÁCH TÀI KHOẢN</h3>
+        <br />
+        <br />
+        <table class="table table-hover general-table table-responsive">
+            <thead>
+                <tr>
+                    <th width="20px">#</th>
+                    <th width="250px">Tên khách hàng</th>
+                    <th width="150px">Số CMND</th>
+                    <th width="150px">Số Điện Thoại</th>
+                    <th width="150px">Email</th>
+                    <th width="150px">Thời hạn gửi</th>
+                    <th width="150px">Tiền gửi ban đầu</th>
+                    <th>Địa chỉ</th>
+                    <th width="120px">Tùy chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataModel in taikhoans">
+                    <td>{{dataModel.ID}}</td>
+                    <td> {{dataModel.TenKhachHang}}</td>
+                    <td> {{dataModel.SoCMND}}</td>
+                    <td> {{dataModel.SoDienThoai}}</td>
+                    <td> {{dataModel.Email}}</td>
+                    <td> {{dataModel.LoaiThietKiem.TenLoaiTietKiem}}</td>
+                    <td> {{dataModel.SoTienGuiBanDau}}</td>
+                    <td> {{dataModel.DiaChi}}</td>
+                    <td style="text-align:center;">
+                        <span>
+                            <span id="save" class="btn btn-primary" ng-click="GetLoaiTietKiemByID(dataModel)">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </span>
+                        </span>
+                        <span>
+                            <span id="save" class="btn btn-danger" ng-click="DeleteLoaiTietKiem(dataModel)">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</div>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/ScriptsNg/Module/app.js"></script>
+<script src="~/ScriptsNg/Controller/TaiKhoanCtrl.js"></script>
+<script src="~/ScriptsNg/Services/CrudService.js"></script>
+

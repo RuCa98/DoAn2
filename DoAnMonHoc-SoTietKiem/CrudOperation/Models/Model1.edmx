@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LoaiTietKiem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiTietKiem" Type="nvarchar" MaxLength="120" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoatDong" Type="bit" />
+        </EntityType>
+        <EntityType Name="PhieuGui">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KhachHangID" Type="int" />
+          <Property Name="SoTienGui" Type="int" />
+          <Property Name="NgayGui" Type="date" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoatDong" Type="bit" />
+        </EntityType>
+        <EntityType Name="PhieuRut">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KhachHangID" Type="int" />
+          <Property Name="SoTienRut" Type="int" />
+          <Property Name="NgayRut" Type="date" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoatDong" Type="bit" />
+        </EntityType>
+        <EntityType Name="TaiKhoanKhachHang">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoaiTietKiemID" Type="int" />
+          <Property Name="TenKhachHang" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoCMND" Type="varchar" MaxLength="15" />
+          <Property Name="SoDienThoai" Type="varchar" MaxLength="10" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="NgayMoSo" Type="date" />
+          <Property Name="SoTienGuiBanDau" Type="int" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoatDong" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="StudentDBModelStoreContainer">
+          <EntitySet Name="LoaiTietKiem" EntityType="Self.LoaiTietKiem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuGui" EntityType="Self.PhieuGui" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuRut" EntityType="Self.PhieuRut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoanKhachHang" EntityType="Self.TaiKhoanKhachHang" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SoTietKiemDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LoaiTietKiems" EntityType="StudentDBModel.LoaiTietKiem" />
+          <EntitySet Name="PhieuGuis" EntityType="StudentDBModel.PhieuGui" />
+          <EntitySet Name="PhieuRuts" EntityType="StudentDBModel.PhieuRut" />
+          <EntitySet Name="TaiKhoanKhachHangs" EntityType="StudentDBModel.TaiKhoanKhachHang" />
+        </EntityContainer>
+        <EntityType Name="LoaiTietKiem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiTietKiem" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="HoatDong" Type="Boolean" />
+          <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhieuGui">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KhachHangID" Type="Int32" />
+          <Property Name="SoTienGui" Type="Int32" />
+          <Property Name="NgayGui" Type="DateTime" Precision="0" />
+          <Property Name="HoatDong" Type="Boolean" />
+          <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhieuRut">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KhachHangID" Type="Int32" />
+          <Property Name="SoTienRut" Type="Int32" />
+          <Property Name="NgayRut" Type="DateTime" Precision="0" />
+          <Property Name="HoatDong" Type="Boolean" />
+          <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TaiKhoanKhachHang">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoaiTietKiemID" Type="Int32" />
+          <Property Name="TenKhachHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoCMND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NgayMoSo" Type="DateTime" Precision="0" />
+          <Property Name="SoTienGuiBanDau" Type="Int32" />
+          <Property Name="HoatDong" Type="Boolean" />
+          <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentDBModelStoreContainer" CdmEntityContainer="SoTietKiemDBEntities">
+          <EntitySetMapping Name="LoaiTietKiems">
+            <EntityTypeMapping TypeName="StudentDBModel.LoaiTietKiem">
+              <MappingFragment StoreEntitySet="LoaiTietKiem">
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+                <ScalarProperty Name="TenLoaiTietKiem" ColumnName="TenLoaiTietKiem" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuGuis">
+            <EntityTypeMapping TypeName="StudentDBModel.PhieuGui">
+              <MappingFragment StoreEntitySet="PhieuGui">
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+                <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
+                <ScalarProperty Name="SoTienGui" ColumnName="SoTienGui" />
+                <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuRuts">
+            <EntityTypeMapping TypeName="StudentDBModel.PhieuRut">
+              <MappingFragment StoreEntitySet="PhieuRut">
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+                <ScalarProperty Name="NgayRut" ColumnName="NgayRut" />
+                <ScalarProperty Name="SoTienRut" ColumnName="SoTienRut" />
+                <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoanKhachHangs">
+            <EntityTypeMapping TypeName="StudentDBModel.TaiKhoanKhachHang">
+              <MappingFragment StoreEntitySet="TaiKhoanKhachHang">
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+                <ScalarProperty Name="SoTienGuiBanDau" ColumnName="SoTienGuiBanDau" />
+                <ScalarProperty Name="NgayMoSo" ColumnName="NgayMoSo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="LoaiTietKiemID" ColumnName="LoaiTietKiemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

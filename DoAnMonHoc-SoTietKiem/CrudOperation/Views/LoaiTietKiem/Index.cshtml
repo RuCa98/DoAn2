@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "QUẢN LÝ THỜI HẠN GỬI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .btn, input, .form-control {
+        border-radius: 0px;
+    }
+</style>
+
+<div ng-app="myapp">
+    <div ng-controller="LoaiTietKiemCtrl">
+        <h2 style="text-align:center" class="text-success"><strong>QUẢN LÝ THỜI HẠN GỬI</strong> </h2>
+        <form novalidate name="frmStudent" id="frmStudent">
+            <br />
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom:10px">
+                    <label class="col-md-4 control-label" for="input17"> THỜI HẠN GỬI</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idTenLoaiTietKiem"
+                               class="form-control"
+                               name="nameTenLoaiTietKiem" ng-model="tenloaitietkiem" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> MÔ TẢ</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idMoTa"
+                               class="form-control"
+                               name="nameMoTa" ng-model="mota" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-7">
+                        <span id="save" class="btn btn-success margin-right-btn" ng-click="SaveUpdate()">
+                            <i class="icon-save"></i> {{btnText}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <hr />
+        <h3>THỜI HẠN GỬI</h3>
+        <br />
+        <br />
+        <table class="table table-hover general-table table-responsive">
+            <thead>
+                <tr>
+                    <th width="20px">#</th>
+                    <th width="250px">Thời hạn</th>
+                    <th>Mô tả</th>
+                    <th width="120px">Tùy chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataModel in loaitietkiems">
+                    <td>{{dataModel.ID}}</td>
+                    <td> {{dataModel.TenLoaiTietKiem}}</td>
+                    <td> {{dataModel.MoTa}}</td>
+                    <td style="text-align:center;">
+                        <span>
+                            <span id="save" class="btn btn-primary" ng-click="GetLoaiTietKiemByID(dataModel)">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </span>
+                        </span>
+                        <span>
+                            <span id="save" class="btn btn-danger" ng-click="DeleteLoaiTietKiem(dataModel)">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</div>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/ScriptsNg/Module/app.js"></script>
+<script src="~/ScriptsNg/Controller/LoaiTietKiemCtrl.js"></script>
+<script src="~/ScriptsNg/Services/CrudService.js"></script>
